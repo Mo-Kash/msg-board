@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1><%= locals.title %></h1>
+    <% if ( locals.messages && locals.messages.length > 0 ) {%>
+        <% locals.messages.forEach((message, idx) => { %>
+            <p class="msg-txt"><%= message.text %> - <%= message.user %></p>
+            <p class="msg-date">[<%= message.added %>]</p>
+            <a href="./message/<%= idx %>">Open</a>
+            <hr>
+        <% }); %>
+    <% } else { %>
+        <p>No messages</p>
+    <% } %>
+    <a href="./new">Add New Message</a>
+</body>
+</html>
