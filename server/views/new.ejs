@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <h1>Add a new messge to the board</h1>
     <form action="/new" method="POST">
         <label>Author
             <input type="text" name="author" value= "" />
         </label>
         <label>Message
-            <input type="text" name="message" value= "" />
+            <textarea type="text" name="message" value= ""></textarea>
         </label>
         <button type="submit">Submit</button>
     </form>
+    <a href="/">Return to messages without adding</a>
 </body>
 </html>

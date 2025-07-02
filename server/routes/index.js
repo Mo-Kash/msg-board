@@ -33,13 +33,20 @@ router.get("/message/:id", (req, res)=>{
 });
 
 router.post("/new", (req, res)=>{
+  if(req.body.message===""){
+    res.redirect("/");
+  } else {
+    if(req.body.author===""){
+      req.body.author = "Anonymous";
+    }
     messages.push({
         text: req.body.message,
         user: req.body.author,
         added: new Date()
     });
     console.log(messages);
-    res.redirect("/")
+    res.redirect("/");
+  }
 });
 
 

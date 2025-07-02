@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
     <h1><%= locals.title %></h1>
     <% if ( locals.messages && locals.messages.length > 0 ) {%>
         <% locals.messages.forEach((message, idx) => { %>
-            <p class="msg-txt"><%= message.text %> - <%= message.user %></p>
-            <p class="msg-date">[<%= message.added %>]</p>
-            <a href="./message/<%= idx %>">Open</a>
-            <hr>
+            <div class="msg-card">
+                <p><span class="msg-txt"><%= message.text %></span> - <span class="msg-user"><%= message.user %></span></p>
+                <% const addedDate = new Date(message.added); %>
+                <p class="msg-date">
+                <%= addedDate.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) %>
+                </p>
+                <a href="./message/<%= idx %>">Open</a>
+            </div>
         <% }); %>
     <% } else { %>
         <p>No messages</p>
